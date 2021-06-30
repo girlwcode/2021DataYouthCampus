@@ -1,6 +1,6 @@
 import pandas as pd
 
-m = pd.read_excel("address.xlsx")
+address = pd.read_excel("address.xlsx")
 
 import requests
 import json
@@ -20,4 +20,15 @@ jsonResponse = json.loads(response.text)
 # print(jsonResponse["meta"])
 
 # 데이터 로드하기
-print(jsonResponse["documents"][0]["road_address"])
+# print(jsonResponse["documents"][0]["road_address"])
+
+alist = address["소재지도로명주소"]
+
+for i in range(len(address["소재지도로명주소"])) :
+    parameters = {"query": address["소재지도로명주소"][i]}
+    response = requests.get(url, headers=header, params=parameters)
+    jsonResponse = json.loads(response.text)
+    if not (jsonResponse["documents"][0]["road_address"]):
+        print("없음")
+        continue
+    print(jsonResponse["documents"][0]["road_address"])
