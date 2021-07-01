@@ -45,7 +45,7 @@ for i in range(0,len(address["소재지도로명주소"])) :
         continue
     else :
         print("x :", jsonResponse["documents"][0]["road_address"]['x'], "y :",
-              jsonResponse["documents"][0]["road_address"]['x'])
+              jsonResponse["documents"][0]["road_address"]['y'])
         #print("x :",jsonResponse["documents"][0]["road_address"]['x'],"y :",jsonResponse["documents"][0]["road_address"]['x'])
         # address["x"][i] = jsonResponse["documents"][0]["road_address"]['x']
         # address["y"][i] = jsonResponse["documents"][0]["road_address"]['y']
